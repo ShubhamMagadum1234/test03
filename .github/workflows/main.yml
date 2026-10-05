@@ -1,56 +1,54 @@
-
-name: pipeline 
+name: pipeline
 
 on:
   push:
     branches:
-      -main:
+      - main
 
 jobs:
-    job1:
-    runs-on: ubantu_latest
+  job1:
+    runs-on: ubuntu-latest
 
     steps:
-      -name : job1
-      run: python job1.py
+      - name: Run job1
+        run: python job1.py
 
-
-    job2:
+  job2:
     needs: job1
-    runs-on: ubantu_latest
+    runs-on: ubuntu-latest
 
     steps:
-      -name : job1
-      run: python job2.py
+      - name: Run job2
+        run: python job2.py
 
-    job3:
+  job3:
     needs: job1
-    runs-on: ubantu_latest
+    runs-on: ubuntu-latest
 
     steps:
-      -name : job1
-      run: python job3.py
+      - name: Run job3
+        run: python job3.py
 
-    job4:
+  job4:
     needs: job2
-    runs-on: ubantu_latest
+    runs-on: ubuntu-latest
 
     steps:
-      -name : job4
-      run: python job4.py
+      - name: Run job4
+        run: python job4.py
 
-    job5:
+  job5:
     needs: job3
-    runs-on: ubantu_latest
+    runs-on: ubuntu-latest
 
     steps:
-      -name : job5
-      run: python job5.py
+      - name: Run job5
+        run: python job5.py
 
-    job6:
-    needs: [job4,job5]
-    runs-on: ubantu_latest
+  job6:
+    needs: [job4, job5]
+    runs-on: ubuntu-latest
 
     steps:
-      -name : job6
-      run: python job6.py
+      - name: Run job6
+        run: python job6.py
