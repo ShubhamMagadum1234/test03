@@ -7,7 +7,7 @@ on:
       -main:
 
 job:
-    
+    job1:
     runs-on: ubantu_latest
 
     steps:
@@ -15,6 +15,7 @@ job:
       run: python job1.py
 
 job:
+    job2:
     needs: job1
     runs-on: ubantu_latest
 
@@ -23,6 +24,7 @@ job:
       run: python job2.py
 
 job:
+    job3:
     needs: job1
     runs-on: ubantu_latest
 
@@ -30,6 +32,7 @@ job:
       -name : job1
       run: python job3.py
 job:
+    job4:
     needs: job2
     runs-on: ubantu_latest
 
@@ -37,6 +40,7 @@ job:
       -name : job4
       run: python job4.py
 job:
+    job5:
     needs: job3
     runs-on: ubantu_latest
 
@@ -44,6 +48,7 @@ job:
       -name : job5
       run: python job5.py
 job:
+    job6:
     needs: [job4,job5]
     runs-on: ubantu_latest
 
